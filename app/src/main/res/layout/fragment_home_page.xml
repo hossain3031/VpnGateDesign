@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.HomePageFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="VPN Gate"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="106dp"
+                android:layout_height="101dp"
+                android:layout_gravity="center"
+                android:src="@drawable/vpn_lock_green" />
+
+        </LinearLayout>
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/taptoconnectDesign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="80dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            card_view:cardBackgroundColor="@android:color/white"
+            card_view:cardElevation="2dp"
+            card_view:cardUseCompatPadding="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
+
+            <LinearLayout
+                android:id="@+id/taptoconnect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/taptoconnect"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="TAP TO CONNECT"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+
+                <ImageView
+                    android:id="@+id/clickme"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/circularbutton"
+                    android:padding="16dp"
+                    android:src="@drawable/rocket" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+
+</FrameLayout>
