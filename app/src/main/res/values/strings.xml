@@ -51,10 +51,11 @@
 
         <item>Bb</item>
         <item>Bd</item>
+        <item>Be</item>
         <item>Bf</item>
-        <item>Bg</item>
 
-        <item>In</item>
+        <item>bg</item>
+        <item>in</item>
         <item>Us</item>
         <item>Vn</item>
     </string-array>
@@ -82,6 +83,7 @@
 
         <item>Free</item>
         <item>Free</item>
+        <item>Paid</item>
         <item>Free</item>
     </string-array>
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,14 +13,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.samsolution.vpngatedesign.R;
 import com.samsolution.vpngatedesign.activity.ServerListActivity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class ConnectedFragment extends Fragment implements View.OnClickListener {
+
+    ArrayList<Integer> flagRes = new ArrayList<>(Arrays.asList(
+            R.drawable.ad, R.drawable.ae, R.drawable.af, R.drawable.ag,
+            R.drawable.al, R.drawable.am, R.drawable.ao, R.drawable.ar,
+            R.drawable.at, R.drawable.au, R.drawable.az, R.drawable.ba,
+            R.drawable.bb, R.drawable.bd, R.drawable.be, R.drawable.bf,
+            R.drawable.bg, R.drawable.in, R.drawable.us, R.drawable.vn));
+
+    //int position = getActivity().getIntent().getIntExtra("POSITION",0);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
 
         getActivity().setTitle("VPN Gate");
         // Inflate the layout for this fragment
@@ -38,7 +55,7 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
 
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.homeFragment, new HomePageFragment());
+        transaction.replace(R.id.connectedActivity, new HomePageFragment());
         transaction.commit();
 
     }
@@ -56,6 +73,7 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
         int id = item.getItemId();
         switch (id) {
             case R.id.country_flag:
+
                 startActivity(new Intent(getActivity(), ServerListActivity.class));
                 return true;
         }
@@ -64,11 +82,27 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
     }
 
 
-    @Override
+    /*@Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         menu.clear();    //remove all items
         getActivity().getMenuInflater().inflate(R.menu.menu_flag, menu);
-    }
+    }*/
 
+    /*We need to call onPrepareOptionsMenu(Menu menu) to add, remove and modify menu items.*/
+   /* @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+
+        MenuItem country_flag_menu = menu.findItem(R.id.country_flag);
+
+        country_flag_menu.setIcon(flagRes.get(position));
+
+
+        if (green.getTitle() != "Green Text") {
+            // If green menu item title not updated then update/change it
+            green.setTitle("Green Text");
+            Toast.makeText(mContext, "Green MenuItem Edited", Toast.LENGTH_SHORT).show();
+        }
+
+    }*/
 }

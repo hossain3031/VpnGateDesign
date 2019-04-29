@@ -11,11 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.ServerListActivity"
+        <activity android:name=".activity.ConnectedActivity"></activity>
+        <activity
+            android:name=".activity.ServerListActivity"
             android:label="Server List"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
-        <activity android:name=".activity.MainActivity"
-            android:label="VPN Gate"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="VPN Gate" />
         <activity android:name=".utility.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -9,25 +9,24 @@ import android.view.WindowManager;
 
 import com.samsolution.vpngatedesign.R;
 
-public class MainActivity extends AppCompatActivity {
+public class ConnectedActivity extends AppCompatActivity {
 
     Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_connected);
 
         fragment = new Fragment();
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.homeFragment, fragment);
+        ft.replace(R.id.connectedActivity, fragment);
         ft.commit();
-
-
     }
 }
