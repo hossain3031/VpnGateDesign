@@ -5,4 +5,84 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="country">Country</string>
     <string name="country_name">Country Name</string>
+
+    <integer-array name="country_flag">
+        <item>@drawable/ad</item>
+        <item>@drawable/ae</item>
+        <item>@drawable/af</item>
+        <item>@drawable/ag</item>
+
+        <item>@drawable/al</item>
+        <item>@drawable/am</item>
+        <item>@drawable/ao</item>
+        <item>@drawable/ar</item>
+
+        <item>@drawable/at</item>
+        <item>@drawable/au</item>
+        <item>@drawable/az</item>
+        <item>@drawable/ba</item>
+
+        <item>@drawable/bb</item>
+        <item>@drawable/bd</item>
+        <item>@drawable/bf</item>
+        <item>@drawable/bg</item>
+
+        <item>@drawable/in</item>
+        <item>@drawable/us</item>
+        <item>@drawable/vn</item>
+
+    </integer-array>
+
+    <string-array name="country_name">
+        <item>Ad</item>
+        <item>Ae</item>
+        <item>Af</item>
+        <item>Ag</item>
+
+        <item>Al</item>
+        <item>Am</item>
+        <item>Ao</item>
+        <item>Ar</item>
+
+        <item>At</item>
+        <item>Au</item>
+        <item>Az</item>
+        <item>Ba</item>
+
+        <item>Bb</item>
+        <item>Bd</item>
+        <item>Bf</item>
+        <item>Bg</item>
+
+        <item>In</item>
+        <item>Us</item>
+        <item>Vn</item>
+    </string-array>
+
+    <string-array name="paidOrFree">
+        <item>Free</item>
+        <item>Free</item>
+        <item>Free</item>
+        <item>Paid</item>
+
+        <item>Free</item>
+        <item>Paid</item>
+        <item>Paid</item>
+        <item>Paid</item>
+
+        <item>Free</item>
+        <item>Paid</item>
+        <item>Paid</item>
+        <item>Free</item>
+
+        <item>Free</item>
+        <item>Paid</item>
+        <item>Paid</item>
+        <item>Paid</item>
+
+        <item>Free</item>
+        <item>Free</item>
+        <item>Free</item>
+    </string-array>
+
 </resources>

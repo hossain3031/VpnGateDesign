@@ -1,16 +1,5 @@
 package com.samsolution.vpngatedesign.fragments;
 
-
-
-        /*FragmentManager manager = getFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.homeFragment, new ConnectedFragment());
-        transaction.commit();*/
-
-
-
-
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
