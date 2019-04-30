@@ -29,14 +29,15 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
             R.drawable.at, R.drawable.au, R.drawable.az, R.drawable.ba,
             R.drawable.bb, R.drawable.bd, R.drawable.be, R.drawable.bf,
             R.drawable.bg, R.drawable.in, R.drawable.us, R.drawable.vn));
-
     //int position = getActivity().getIntent().getIntExtra("POSITION",0);
+    int pos;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
+        pos = getActivity().getIntent().getIntExtra("POSITION", 10);
+        //Toast.makeText(getActivity(), " " + pos, Toast.LENGTH_SHORT).show();       //position showing
 
         getActivity().setTitle("VPN Gate");
         // Inflate the layout for this fragment
@@ -52,34 +53,46 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.connectedActivity, new HomePageFragment());
         transaction.commit();
-
     }
-
 
     //Menu
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_flag, menu);
-        super.onCreateOptionsMenu(menu,inflater);
+        MenuItem menuItem = null;
+        if (menuItem != null) {
+            menuItem.setIcon(flagRes.get(pos));
+        }
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case R.id.country_flag:
-
-                startActivity(new Intent(getActivity(), ServerListActivity.class));
-                return true;
+        if (id == R.id.country_flag) {
+            startActivity(new Intent(getActivity(), ServerListActivity.class));
+            return true;
         }
-
         return super.onOptionsItemSelected(item); // important line
     }
+
+
+    //Change Icon in Runtime
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+
+        MenuItem settingsItem = menu.findItem(R.id.country_flag);
+        // set your desired icon here based on a flag if you like
+        settingsItem.setIcon(ContextCompat.getDrawable(getContext(), flagRes.get(pos)));
+
+
+    }
+
+
 
 
     /*@Override
