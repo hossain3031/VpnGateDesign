@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".fragments.registrationFragment.Login">
+
+
+    <TextView
+        android:textColor="@color/green_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VPN Gate"
+        android:textSize="50sp"
+        android:layout_marginBottom="50dp"/>
+
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="3dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/person"
+                android:gravity="center"
+                android:hint="username" />
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/key"
+                android:gravity="center"
+                android:hint="password" />
+
+            <Button
+
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/green_color"
+                android:text="login"
+                android:focusable="true"
+                android:layout_gravity="end"
+                android:textColor="@android:color/white"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"/>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't you have any account?"/>
+
+    <Button
+        android:id="@+id/createAccount"
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Create"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_blue_bright"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"/>
+
+
+</LinearLayout>
