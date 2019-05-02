@@ -24,7 +24,6 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
        /* Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).hide();*/
         setHasOptionsMenu(true);
 
-
         View v = inflater.inflate(R.layout.fragment_home_page, container, false);
 
         ImageView img = v.findViewById(R.id.clickme);

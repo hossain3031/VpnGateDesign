@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.registrationFragment.Signup">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.registrationFragment.Signup"
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:textColor="@color/green_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VPN Gate"
+        android:textSize="50sp"
+        android:layout_marginBottom="50dp"/>
 
-</FrameLayout>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="3dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/person"
+                android:gravity="center"
+                android:hint="email" />
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/key"
+                android:gravity="center"
+                android:hint="password" />
+            <EditText
+                android:layout_marginTop="16dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/key"
+                android:gravity="center"
+                android:hint="confirm password" />
+
+            <Button
+                android:id="@+id/createId"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/green_color"
+                android:text="Create"
+                android:focusable="true"
+                android:layout_gravity="end"
+                android:textColor="@android:color/white"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"/>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Have any account?"/>
+
+    <Button
+        android:id="@+id/gotoLoginPage"
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_blue_bright"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"/>
+
+
+
+</LinearLayout>

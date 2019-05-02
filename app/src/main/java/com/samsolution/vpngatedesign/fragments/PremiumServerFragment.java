@@ -26,10 +26,9 @@ public class PremiumServerFragment extends Fragment implements View.OnClickListe
 
         View view = inflater.inflate(R.layout.fragment_premium_server, container, false);
 
-        Button tryPremium = view.findViewById(R.id.premiumServerBtn);
-        tryPremium.setOnClickListener(this);
+        Button createAccountBtn = view.findViewById(R.id.createAccount);
+        createAccountBtn.setOnClickListener(this);
 
-        // Inflate the layout for this fragment
         return view;
     }
 
@@ -37,4 +36,5 @@ public class PremiumServerFragment extends Fragment implements View.OnClickListe
     public void onClick(View v) {
         startActivity(new Intent(getActivity(), LoginRegActivity.class));
     }
+
 }

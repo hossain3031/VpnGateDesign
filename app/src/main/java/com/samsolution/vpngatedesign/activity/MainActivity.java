@@ -27,7 +27,5 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.homeFragment, fragment);
         ft.commit();
-
-
     }
 }

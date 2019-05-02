@@ -38,16 +38,12 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
 
         pos = getActivity().getIntent().getIntExtra("POSITION", 10);
         //Toast.makeText(getActivity(), " " + pos, Toast.LENGTH_SHORT).show();       //position showing
-
         getActivity().setTitle("VPN Gate");
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_connected, container, false);
-
         setHasOptionsMenu(true);
-
         ImageView imageView = v.findViewById(R.id.disconnectMe);
         imageView.setOnClickListener(this);
-
         return v;
     }
 
@@ -80,7 +76,6 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
         return super.onOptionsItemSelected(item); // important line
     }
 
-
     //Change Icon in Runtime
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
@@ -88,34 +83,5 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
         MenuItem settingsItem = menu.findItem(R.id.country_flag);
         // set your desired icon here based on a flag if you like
         settingsItem.setIcon(ContextCompat.getDrawable(getContext(), flagRes.get(pos)));
-
-
     }
-
-
-
-
-    /*@Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        menu.clear();    //remove all items
-        getActivity().getMenuInflater().inflate(R.menu.menu_flag, menu);
-    }*/
-
-    /*We need to call onPrepareOptionsMenu(Menu menu) to add, remove and modify menu items.*/
-   /* @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-
-        MenuItem country_flag_menu = menu.findItem(R.id.country_flag);
-
-        country_flag_menu.setIcon(flagRes.get(position));
-
-
-        if (green.getTitle() != "Green Text") {
-            // If green menu item title not updated then update/change it
-            green.setTitle("Green Text");
-            Toast.makeText(mContext, "Green MenuItem Edited", Toast.LENGTH_SHORT).show();
-        }
-
-    }*/
 }

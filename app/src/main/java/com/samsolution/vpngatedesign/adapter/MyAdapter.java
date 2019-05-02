@@ -46,13 +46,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.flagImageView.setImageResource((flagId.get(position)));
         holder.countryName.setText(countryName.get(position));
         holder.freePaid.setText(freeOrPaidList.get(position));
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 context.startActivity( new Intent(context, ConnectedActivity.class).putExtra("POSITION", position));
-
                 //Toast.makeText(context, "Country: " + countryName.get(position)+ "\nServer: "+ freeOrPaidList.get(position), Toast.LENGTH_SHORT).show();
             }
         });
