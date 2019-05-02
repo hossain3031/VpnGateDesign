@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        fragment = new Fragment();
+       /* fragment = new Fragment();
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.homeFragment, fragment);
-        ft.commit();
+        ft.commit();*/
     }
 }

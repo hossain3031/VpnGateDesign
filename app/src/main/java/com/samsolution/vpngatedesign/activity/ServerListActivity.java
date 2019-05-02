@@ -17,13 +17,17 @@ import com.samsolution.vpngatedesign.fragments.PremiumServerFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServerListActivity extends AppCompatActivity {
+public class ServerListActivity extends AppCompatActivity  {
+
+    boolean pager = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_server_list);
 
+
+        pager = getIntent().getBooleanExtra("PAGER", false);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -39,12 +43,22 @@ public class ServerListActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+
+
     }
 
     private void setupViewPager(ViewPager viewPager) {
+
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FreeServerFragment(), "Free");
-        adapter.addFragment(new PremiumServerFragment(), "Premium");
+
+        if (!pager){
+            adapter.addFragment(new FreeServerFragment(), "Free");
+            adapter.addFragment(new PremiumServerFragment(), "Premium");
+        } else {
+            adapter.addFragment(new PremiumServerFragment(), "Premium");
+            adapter.addFragment(new FreeServerFragment(), "Free");
+        }
         viewPager.setAdapter(adapter);
     }
 
@@ -76,7 +90,6 @@ public class ServerListActivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {

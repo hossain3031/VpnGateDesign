@@ -6,7 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.registrationFragment.Signup"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:id="@+id/containerFragment">
 
     <TextView
         android:textColor="@color/green_color"

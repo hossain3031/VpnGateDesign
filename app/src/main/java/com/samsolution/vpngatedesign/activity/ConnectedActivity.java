@@ -23,10 +23,10 @@ public class ConnectedActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_connected);
 
-        fragment = new Fragment();
+        /*fragment = new Fragment();
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.connectedActivity, fragment);
-        ft.commit();
+        ft.commit();*/
     }
 }

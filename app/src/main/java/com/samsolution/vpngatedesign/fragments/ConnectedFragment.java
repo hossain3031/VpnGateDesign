@@ -36,7 +36,7 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        pos = getActivity().getIntent().getIntExtra("POSITION", 10);
+        pos = getActivity().getIntent().getIntExtra("POSITION", 1);
         //Toast.makeText(getActivity(), " " + pos, Toast.LENGTH_SHORT).show();       //position showing
         getActivity().setTitle("VPN Gate");
         // Inflate the layout for this fragment
