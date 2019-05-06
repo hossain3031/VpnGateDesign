@@ -20,6 +20,8 @@ import com.samsolution.vpngatedesign.R;
 public class Login extends Fragment implements View.OnClickListener {
 
     Fragment fragment;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
     public Login() {
         // Required empty public constructor
@@ -48,15 +50,45 @@ public class Login extends Fragment implements View.OnClickListener {
                 break;
             case R.id.createAccount:
                 //gotoCreateID();
+                createFragmentAdd();
                 Toast.makeText(getActivity(), "Create Account Working...", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
 
-    /*public void gotoCreateID(){
-        FragmentManager manager = getFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.registrationContainer, new Signup());
-        transaction.commit();
-    }*/
+    private void createFragmentAdd() {
+
+        fragmentManager = getActivity().getSupportFragmentManager();
+        fragment = fragmentManager.findFragmentById(R.id.registrationContainer);
+
+        if (fragment instanceof Login){
+            fragment = new Signup();
+        } else {
+            fragment = new Login();
+        }
+
+        fragmentTransaction = fragmentManager.beginTransaction();
+        //fragmentTransaction.add(R.id.fragmentContainer, fragment, "DemoFragment");    // It will add fragments
+        //fragmentTransaction.replace(R.id.fragmentContainer, fragment, "DemoFragment");    //It will replace the old fragment with the new one
+        fragmentTransaction.replace(R.id.registrationContainer, fragment, "demoFragment");    //It will replace the old fragment with the new one
+        // fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.addToBackStack("Replace" + fragment.toString());
+        fragmentTransaction.commit();
+
+
+
+
+
+        //Working
+        /*Fragment newFragment = new Signup();
+        fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.registrationContainer, newFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();*/
+    }
+
+
+
+
 }

@@ -19,14 +19,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     ArrayList<Integer> flagId;
     ArrayList<String> countryName;
-    ArrayList<String> freeOrPaidList;
+    //ArrayList<String> freeOrPaidList;
     Context context;
 
-    public MyAdapter(Context context, ArrayList<Integer> flagId, ArrayList<String> countryName, ArrayList<String> freeOrPaidList) {
+    public MyAdapter(Context context, ArrayList<Integer> flagId, ArrayList<String> countryName) {
         this.context = context;
         this.flagId = flagId;
         this.countryName = countryName;
-        this.freeOrPaidList = freeOrPaidList;
+        //this.freeOrPaidList = freeOrPaidList;
     }
 
     @NonNull
@@ -45,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
         holder.flagImageView.setImageResource((flagId.get(position)));
         holder.countryName.setText(countryName.get(position));
-        holder.freePaid.setText(freeOrPaidList.get(position));
+        //holder.freePaid.setText(freeOrPaidList.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/person"
                 android:gravity="center"
-                android:hint="username" />
+                android:hint="email" />
 
             <EditText
                 android:layout_marginTop="16dp"

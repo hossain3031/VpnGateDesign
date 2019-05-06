@@ -5,6 +5,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="country">Country</string>
     <string name="country_name">Country Name</string>
+    <string name="token">BIlyEeLtXM7DQ8XM7DQ8beP5RxyEeLtwAAAAEwAAAAEGbeP5RxGBIl</string>
 
     <integer-array name="country_flag">
         <item>@drawable/ad</item>

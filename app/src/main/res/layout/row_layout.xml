@@ -10,36 +10,43 @@
     android:focusable="true"
     android:layout_marginBottom="0.5dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="4">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/flagImageId"
-            android:layout_width="0dp"
+            android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/bd" />
+            android:src="@drawable/bd"
+            android:layout_marginRight="20dp"/>
 
         <TextView
+            android:layout_toEndOf="@id/flagImageId"
             android:id="@+id/countryNameId"
             android:gravity="center"
             android:text="Bangladesh"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signal_3"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"/>
 
-        <TextView
+        <!--<TextView
             android:id="@+id/freePaid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:gravity="center"
             android:text="Free"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_marginRight="10dp"/>-->
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </android.support.v7.widget.CardView>

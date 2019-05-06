@@ -1,12 +1,9 @@
 package com.samsolution.vpngatedesign.fragments.registrationFragment;
 
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +11,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.samsolution.vpngatedesign.R;
-import com.samsolution.vpngatedesign.activity.ServerListActivity;
-import com.samsolution.vpngatedesign.fragments.HomePageFragment;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +18,8 @@ import static android.content.ContentValues.TAG;
 public class Signup extends Fragment implements View.OnClickListener {
 
     Fragment fragment;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
     public Signup() {
         // Required empty public constructor
@@ -46,14 +41,9 @@ public class Signup extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        /*Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
 
-        FragmentManager manager = getFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.registrationContainer, new PremiumServerFragment());
-        transaction.commit();*/
         fragment = new Login();
-        //fragment2 = new Signup();
+
 
         switch (v.getId()) {
             case R.id.createId:
@@ -61,17 +51,40 @@ public class Signup extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.gotoLoginPage:
-                //gotoCreateID();
-
-                startActivity(new Intent(getContext(), ServerListActivity.class).putExtra("PAGER",true));
-
-                /*FragmentManager manager = getFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.replace(R.id.registrationContainer, new Login());
-                transaction.commit();
-                Log.i(TAG, "onClick: loginpage");*/
-                break;
+                replaceFragment();
         }
 
     }
+
+
+    private void replaceFragment() {
+
+        fragmentManager = getActivity().getSupportFragmentManager();
+        fragment = fragmentManager.findFragmentById(R.id.registrationContainer);
+
+        if (fragment instanceof Signup){
+            fragment = new Login();
+        } else {
+            fragment = new Signup();
+        }
+
+        fragmentTransaction = fragmentManager.beginTransaction();
+        //fragmentTransaction.add(R.id.fragmentContainer, fragment, "DemoFragment");    // It will add fragments
+        //fragmentTransaction.replace(R.id.fragmentContainer, fragment, "DemoFragment");    //It will replace the old fragment with the new one
+        fragmentTransaction.replace(R.id.registrationContainer, fragment, "demoFragment");    //It will replace the old fragment with the new one
+        // fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.addToBackStack("Replace" + fragment.toString());
+        fragmentTransaction.commit();
+
+
+        //Working
+       /* Fragment newFragment = new Login();
+        fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.registrationContainer, newFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();*/
+    }
+
+
 }

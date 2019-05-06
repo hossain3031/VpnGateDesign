@@ -19,7 +19,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
         flagImageView = itemView.findViewById(R.id.flagImageId);
         countryName = itemView.findViewById(R.id.countryNameId);
-        freePaid = itemView.findViewById(R.id.freePaid);
+        //freePaid = itemView.findViewById(R.id.freePaid);
 
     }
 }
