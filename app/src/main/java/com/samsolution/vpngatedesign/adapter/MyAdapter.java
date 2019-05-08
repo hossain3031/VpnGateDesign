@@ -16,14 +16,15 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-    ArrayList<Integer> flagId;
+    //ArrayList<Integer> flagId;
     ArrayList<String> countryName;
     //ArrayList<String> freeOrPaidList;
     Context context;
 
-    public MyAdapter(Context context, ArrayList<Integer> flagId, ArrayList<String> countryName) {
+
+    public MyAdapter(Context context, ArrayList<String> countryName) {
         this.context = context;
-        this.flagId = flagId;
+        //this.flagId = flagId;
         this.countryName = countryName;
         //this.freeOrPaidList = freeOrPaidList;
     }
@@ -42,7 +43,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
-        holder.flagImageView.setImageResource((flagId.get(position)));
+        //holder.flagImageView.setImageResource((flagId.get(position)));
         holder.countryName.setText(countryName.get(position));
         //holder.freePaid.setText(freeOrPaidList.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
