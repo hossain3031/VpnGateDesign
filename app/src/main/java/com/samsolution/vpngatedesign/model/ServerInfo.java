@@ -1,41 +1,45 @@
 package com.samsolution.vpngatedesign.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
-public class ServerResponse{
-
+public class ServerInfo {
     @SerializedName("HostName")
-    private String hostname;
+    @Expose
+    private String hostName;
     @SerializedName("IP")
-    private String ip;
+    @Expose
+    private String iP;
     @SerializedName("Score")
+    @Expose
     private String score;
     @SerializedName("Latency")
+    @Expose
     private String latency;
     @SerializedName("Speed")
+    @Expose
     private String speed;
     @SerializedName("CountryLong")
+    @Expose
     private String countryLong;
     @SerializedName("CountryShort")
+    @Expose
     private String countryShort;
 
-
-    public String getHostname() {
-        return hostname;
+    public String getHostName() {
+        return hostName;
     }
 
-    public void setHostname(String hostname) {
-        this.hostname = hostname;
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
     }
 
-    public String getIp() {
-        return ip;
+    public String getIP() {
+        return iP;
     }
 
-    public void setIp(String ip) {
-        this.ip = ip;
+    public void setIP(String iP) {
+        this.iP = iP;
     }
 
     public String getScore() {

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import com.samsolution.vpngatedesign.R;
 import com.samsolution.vpngatedesign.activity.ServerListActivity;
 
@@ -21,7 +22,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       /* Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).hide();*/
+        /* Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).hide();*/
         setHasOptionsMenu(true);
 
         View v = inflater.inflate(R.layout.fragment_home_page, container, false);
@@ -40,16 +41,15 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu, menu);
-        super.onCreateOptionsMenu(menu,inflater);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case R.id.country:
-                startActivity(new Intent(getActivity(), ServerListActivity.class));
-                return true;
+        if (id == R.id.country) {
+            startActivity(new Intent(getActivity(), ServerListActivity.class));
+            return true;
         }
 
         return super.onOptionsItemSelected(item); // important line

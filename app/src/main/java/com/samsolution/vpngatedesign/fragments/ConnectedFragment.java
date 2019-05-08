@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.samsolution.vpngatedesign.R;
 import com.samsolution.vpngatedesign.activity.ServerListActivity;
