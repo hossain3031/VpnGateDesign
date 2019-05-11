@@ -24,7 +24,7 @@ public class ConnectedActivity extends AppCompatActivity {
         /*fragment = new Fragment();
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.connectedActivity, fragment);
+        ft.add(R.id.connectedActivity, fragment);
         ft.commit();*/
     }
 }

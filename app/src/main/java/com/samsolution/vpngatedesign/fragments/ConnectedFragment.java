@@ -1,6 +1,7 @@
 package com.samsolution.vpngatedesign.fragments;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,27 +18,22 @@ import android.widget.ImageView;
 import com.samsolution.vpngatedesign.R;
 import com.samsolution.vpngatedesign.activity.ServerListActivity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class ConnectedFragment extends Fragment implements View.OnClickListener {
 
-    ArrayList<Integer> flagRes = new ArrayList<>(Arrays.asList(
-            R.drawable.ad, R.drawable.ae, R.drawable.af, R.drawable.ag,
-            R.drawable.al, R.drawable.am, R.drawable.ao, R.drawable.ar,
-            R.drawable.at, R.drawable.au, R.drawable.az, R.drawable.ba,
-            R.drawable.bb, R.drawable.bd, R.drawable.be, R.drawable.bf,
-            R.drawable.bg, R.drawable.in, R.drawable.us, R.drawable.vn));
-    //int position = getActivity().getIntent().getIntExtra("POSITION",0);
+    //ArrayList<String> flagRes = new ArrayList<>();
+
     int pos;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        pos = getActivity().getIntent().getIntExtra("POSITION", 1);
+       pos = getActivity().getIntent().getIntExtra("POSITION", 1);
         //Toast.makeText(getActivity(), " " + pos, Toast.LENGTH_SHORT).show();       //position showing
         getActivity().setTitle("VPN Gate");
+
+        //flagRes = FreeServerFragment.flagLink;
+
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_connected, container, false);
         setHasOptionsMenu(true);
@@ -60,7 +56,7 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
         inflater.inflate(R.menu.menu_flag, menu);
         MenuItem menuItem = null;
         if (menuItem != null) {
-            menuItem.setIcon(flagRes.get(pos));
+          // menuItem.setIcon(Drawable.createFromPath(flagRes.get(pos)));
         }
         super.onCreateOptionsMenu(menu, inflater);
     }
@@ -81,6 +77,6 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
 
         MenuItem settingsItem = menu.findItem(R.id.country_flag);
         // set your desired icon here based on a flag if you like
-        settingsItem.setIcon(ContextCompat.getDrawable(getContext(), flagRes.get(pos)));
+        settingsItem.setIcon(ContextCompat.getDrawable(getContext(), R.drawable.broken_image)); //flagRes.get(pos)
     }
 }

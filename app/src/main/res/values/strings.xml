@@ -6,7 +6,7 @@
     <string name="country_name">Country Name</string>
     <string name="token">BIlyEeLtXM7DQ8XM7DQ8beP5RxyEeLtwAAAAEwAAAAEGbeP5RxGBIl</string>
 
-    <integer-array name="country_flag">
+    <!--<integer-array name="country_flag">
         <item>@drawable/ad</item>
         <item>@drawable/ae</item>
         <item>@drawable/af</item>
@@ -31,7 +31,7 @@
         <item>@drawable/us</item>
         <item>@drawable/vn</item>
 
-    </integer-array>
+    </integer-array>-->
 
     <string-array name="country_name">
         <item>Ad</item>
