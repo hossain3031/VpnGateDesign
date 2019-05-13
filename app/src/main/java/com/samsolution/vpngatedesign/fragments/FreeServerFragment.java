@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -36,16 +37,9 @@ public class FreeServerFragment extends Fragment implements View.OnClickListener
 
     RecyclerView recyclerView;
     ArrayList<String> data = new ArrayList<>();
-    //ArrayList<String> shortName = new ArrayList<>();
     public static ArrayList<String> flagLink = new ArrayList<>();
-
+    ProgressBar progressBar;
     public static final String TAG = "FreeServerFragment";
-   /* ArrayList<Integer> flagRes = new ArrayList<>(Arrays.asList(
-            R.drawable.ad, R.drawable.ae, R.drawable.af, R.drawable.ag,
-            R.drawable.al, R.drawable.am, R.drawable.ao, R.drawable.ar,
-            R.drawable.at, R.drawable.au, R.drawable.az, R.drawable.ba,
-            R.drawable.bb, R.drawable.bd, R.drawable.be, R.drawable.bf,
-            R.drawable.bg, R.drawable.in, R.drawable.us, R.drawable.vn));*/
 
     public FreeServerFragment() {
         // Required empty public constructor
@@ -56,7 +50,26 @@ public class FreeServerFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_free_server, container, false);
 
+        progressBar = v.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         recyclerView = v.findViewById(R.id.recyclerViewId);
+
+        String str = "QklseUVlTHRYTTdEUThYTTdEUThiZVA1Unh5RWVMdHdBQUFBRXdBQUFBRUdiZVA1UnhHQkls";
+
+        //String code= android.util.Base64.decode(str, android.util.Base64.DEFAULT);
+
+        /*String sample = "India Team will win the Cup";
+        // print actual String
+        System.out.println("Sample String:\n"
+                + sample);
+        // Encode into Base64 format
+        String BasicBase64format
+                = Base64.getEncoder()
+                .encodeToString(sample.getBytes());*/
+
+        //Base64
+
+
 
         String encodedToken = "QklseUVlTHRYTTdEUThYTTdEUThiZVA1Unh5RWVMdHdBQUFBRXdBQUFBRUdiZVA1UnhHQkls";
 
@@ -80,28 +93,25 @@ public class FreeServerFragment extends Fragment implements View.OnClickListener
             public void onResponse(@NonNull Call<ServerResponse> call, @NonNull Response<ServerResponse> response) {
 
                 Log.i(TAG, "onResponse: " + response.message());
-
+                progressBar.setVisibility(View.GONE);
                 ServerResponse server = response.body();
 
                 if (server != null) {
                     for (Result result : server.getResults()) {
-                       // Log.i("server", result.getHostName());
-                       // Log.i("server", result.getIP());
+                        Log.i("server", result.getHostName());
+                        Log.i("server", result.getIP());
                         Log.i("server", result.getScore());
-                       // Log.i("server", result.getLatency());
-                       //  Log.i("server", result.getCountryLong());
-                       // Log.i("server", result.getCountryShort());*/
+                        Log.i("server", result.getLatency());
+                        Log.i("server", result.getCountryLong());
+                        Log.i("server", result.getCountryShort());
 
                         data.add(result.getCountryLong());
-                        //shortName.add(result.getCountryShort().toLowerCase());
-
+                        progressBar.setVisibility(View.GONE);
                         flagLink.add("http://v4v.info/countryflag/" + result.getCountryShort().toLowerCase() + ".png");
                     }
 
                     Log.i(TAG, "onResponse: " + flagLink);
 
-                    // Log.i(TAG, "onResponse: " + flagName.toString());
-                    // = Integer.parseInt(flagName);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     MyAdapter adapter = new MyAdapter(getActivity(), data, flagLink);
                     recyclerView.setAdapter(adapter);

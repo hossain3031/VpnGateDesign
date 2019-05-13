@@ -1,6 +1,7 @@
 package com.samsolution.vpngatedesign.fragments;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,27 +16,47 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.samsolution.vpngatedesign.R;
 import com.samsolution.vpngatedesign.activity.ServerListActivity;
+import com.samsolution.vpngatedesign.adapter.MyAdapter;
+
+import java.util.ArrayList;
+
 
 public class ConnectedFragment extends Fragment implements View.OnClickListener {
 
     //ArrayList<String> flagRes = new ArrayList<>();
-
-    int pos;
+    private ArrayList<String> flagLinkConnected;
+    int position;
+    MyAdapter myAdapter;
+    ImageView imageView;
+    ImageView connectedFlagIdIV;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-       pos = getActivity().getIntent().getIntExtra("POSITION", 1);
+        View v = inflater.inflate(R.layout.fragment_connected, container, false);
+        connectedFlagIdIV = v.findViewById(R.id.connectedFlagId);
+        //link = myAdapter.getFlagLink();
+        imageView = v.findViewById(R.id.connectedFlagId);
+        position = getActivity().getIntent().getIntExtra("POSITION", 1);
+        flagLinkConnected = getActivity().getIntent().getStringArrayListExtra("VALUE");
         //Toast.makeText(getActivity(), " " + pos, Toast.LENGTH_SHORT).show();       //position showing
         getActivity().setTitle("VPN Gate");
+
+
+
+        Glide.with(getActivity())
+                .load(flagLinkConnected.get(position))
+                .into(imageView);
+
 
         //flagRes = FreeServerFragment.flagLink;
 
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_connected, container, false);
+
         setHasOptionsMenu(true);
         ImageView imageView = v.findViewById(R.id.disconnectMe);
         imageView.setOnClickListener(this);
@@ -44,10 +65,12 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.connectedActivity, new HomePageFragment());
         transaction.commit();
+        imageView.setVisibility(View.GONE);
     }
 
     //Menu
@@ -56,7 +79,7 @@ public class ConnectedFragment extends Fragment implements View.OnClickListener 
         inflater.inflate(R.menu.menu_flag, menu);
         MenuItem menuItem = null;
         if (menuItem != null) {
-          // menuItem.setIcon(Drawable.createFromPath(flagRes.get(pos)));
+          //menuItem.setIcon();
         }
         super.onCreateOptionsMenu(menu, inflater);
     }

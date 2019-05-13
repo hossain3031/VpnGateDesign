@@ -1,5 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
+<com.balysv.materialripple.MaterialRippleLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/RippleStyleBlack"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
+    <LinearLayout
+        android:id="@+id/lyt_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:background="#000000"
+            android:padding="0.1dp"
+            android:id="@+id/flagImageId"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:layout_marginRight="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_middle"
+            android:src="@drawable/bd" />
+
+        <View
+            android:layout_width="@dimen/spacing_medium"
+            android:layout_height="0dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/spacing_middle"
+                android:paddingTop="@dimen/spacing_middle">
+
+                <TextView
+                    android:id="@+id/countryNameId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_middle"
+                    android:layout_marginRight="@dimen/spacing_middle"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:maxLines="2"
+                    android:text="Country Name"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/grey_40" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_10" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.balysv.materialripple.MaterialRippleLayout>
+
+
+
+
+
+
+<!--
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -32,14 +103,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <!--<ImageView
+        &lt;!&ndash;<ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/signal_3"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp"/>-->
+            android:layout_marginEnd="10dp"/>&ndash;&gt;
 
-        <!--<TextView
+        &lt;!&ndash;<TextView
             android:layout_marginLeft="50dp"
             android:id="@+id/countryNameSmall"
             android:layout_width="wrap_content"
@@ -47,8 +118,8 @@
             android:layout_toRightOf="@id/countryNameId"
             android:gravity="center"
             android:text="Bn"
-            android:layout_marginRight="10dp"/>-->
+            android:layout_marginRight="10dp"/>&ndash;&gt;
 
     </RelativeLayout>
 
-</android.support.v7.widget.CardView>
+</android.support.v7.widget.CardView>-->

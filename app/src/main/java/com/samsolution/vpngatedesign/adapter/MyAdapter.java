@@ -56,7 +56,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
             public void onClick(View v) {
                 Toast.makeText(context, "You clicked on: " + position, Toast.LENGTH_SHORT).show();
 
-                context.startActivity( new Intent(context, ConnectedActivity.class).putExtra("POSITION", position));
+                context.startActivity( new Intent(context, ConnectedActivity.class).putExtra("POSITION", position).putExtra("VALUE",flagLink));
                 //Toast.makeText(context, "Country: " + countryName.get(position)+ "\nServer: "+ freeOrPaidList.get(position), Toast.LENGTH_SHORT).show();
             }
         });
@@ -67,5 +67,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public int getItemCount() {
         return countryName.size();
+    }
+
+
+    public ArrayList<String> getFlagLink() {
+        return flagLink;
     }
 }
