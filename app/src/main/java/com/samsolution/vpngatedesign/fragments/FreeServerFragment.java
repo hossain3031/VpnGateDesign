@@ -17,12 +17,15 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.samsolution.vpngatedesign.R;
+import com.samsolution.vpngatedesign.activity.MainActivity;
 import com.samsolution.vpngatedesign.adapter.MyAdapter;
+import com.samsolution.vpngatedesign.model.Post;
 import com.samsolution.vpngatedesign.model.Result;
 import com.samsolution.vpngatedesign.model.ServerResponse;
 import com.samsolution.vpngatedesign.network.ApiInterface;
 
 import java.util.ArrayList;
+import android.util.Base64;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,7 +43,6 @@ public class FreeServerFragment extends Fragment implements View.OnClickListener
     public static ArrayList<String> flagLink = new ArrayList<>();
     ProgressBar progressBar;
     public static final String TAG = "FreeServerFragment";
-
     public FreeServerFragment() {
         // Required empty public constructor
     }
@@ -54,24 +56,9 @@ public class FreeServerFragment extends Fragment implements View.OnClickListener
         progressBar.setVisibility(View.VISIBLE);
         recyclerView = v.findViewById(R.id.recyclerViewId);
 
-        String str = "QklseUVlTHRYTTdEUThYTTdEUThiZVA1Unh5RWVMdHdBQUFBRXdBQUFBRUdiZVA1UnhHQkls";
+        String testValue = getResources().getString(R.string.token);
 
-        //String code= android.util.Base64.decode(str, android.util.Base64.DEFAULT);
-
-        /*String sample = "India Team will win the Cup";
-        // print actual String
-        System.out.println("Sample String:\n"
-                + sample);
-        // Encode into Base64 format
-        String BasicBase64format
-                = Base64.getEncoder()
-                .encodeToString(sample.getBytes());*/
-
-        //Base64
-
-
-
-        String encodedToken = "QklseUVlTHRYTTdEUThYTTdEUThiZVA1Unh5RWVMdHdBQUFBRXdBQUFBRUdiZVA1UnhHQkls";
+        byte[] encodeValue = Base64.encode(testValue.getBytes(), Base64.DEFAULT);   //Store the value here
 
         Gson gson = new GsonBuilder().setLenient().create();
         Retrofit retrofit = new Retrofit.Builder()
@@ -86,7 +73,10 @@ public class FreeServerFragment extends Fragment implements View.OnClickListener
         linearLayout.setOnClickListener(this);
 
         ApiInterface api = retrofit.create(ApiInterface.class);
-        Call<ServerResponse> call = api.getServerResult(encodedToken);
+        Call<ServerResponse> call = api.getServerResult(new String(encodeValue));
+
+
+        Log.i(TAG, "onCreateView: " + new String(encodeValue));
 
         call.enqueue(new Callback<ServerResponse>() {
             @Override
@@ -98,12 +88,12 @@ public class FreeServerFragment extends Fragment implements View.OnClickListener
 
                 if (server != null) {
                     for (Result result : server.getResults()) {
-                        Log.i("server", result.getHostName());
+                       /* Log.i("server", result.getHostName());
                         Log.i("server", result.getIP());
                         Log.i("server", result.getScore());
                         Log.i("server", result.getLatency());
                         Log.i("server", result.getCountryLong());
-                        Log.i("server", result.getCountryShort());
+                        Log.i("server", result.getCountryShort());*/
 
                         data.add(result.getCountryLong());
                         progressBar.setVisibility(View.GONE);
